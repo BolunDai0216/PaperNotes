@@ -1,6 +1,8 @@
 # **Notes on Mutual Fund Flows and Performance in Rational Markets**
 
-Bolun Dai (bd1555@nyu.edu)
+**Authors: Jonathan B. Berk and Richard C. Green**
+
+Notes by Bolun Dai (bd1555@nyu.edu)
 
 ## The Model
 
@@ -219,4 +221,45 @@ $$
 
 
 
+If the excess return is below a critical realization $r^*(\phi_{t-1})$ defined as
+$$
+r^*(\phi_{t-1}) = (\bar{\phi} - \phi_{t-1})h(q_{t-1})\frac{\gamma + t\omega}{\omega} = 2\Big(\frac{\bar{\phi} - \phi_{t-1}}{\phi_{t-1}}\Big)\Big(\frac{\gamma + t\omega}{\omega}\Big)f
+$$
+the market's posterior on the maneger's ability falls to $\bar{\phi}$.
 
+
+
+In summary we have the overall change in the assets under management given by
+$$
+\frac{q_t - q_{t-1}}{q_{t-1}} = \begin{cases}
+	-1 & \mathrm{if}\ r_t < \displaystyle2\Big(\frac{\bar{\phi} - \phi_{t-1}}{\phi_{t-1}}\Big)\Big(\frac{\gamma + t\omega}{\omega}\Big)f\\
+	\displaystyle\frac{r_t}{f}\Big(\frac{\omega}{\gamma + t\omega}\Big) + \frac{r_t^2}{4f^2}\Big(\frac{\omega}{\gamma + t\omega}\Big)^2 & \mathrm{otherwise}
+\end{cases}.
+$$
+
+
+If we consider the flow of new funds we can have
+$$
+n_t(r_t, \phi_{t-1}) = \begin{cases}
+	-1 & \mathrm{if}\ r_t < \displaystyle2\Big(\frac{\bar{\phi} - \phi_{t-1}}{\phi_{t-1}}\Big)\Big(\frac{\gamma + t\omega}{\omega}\Big)f\\
+	\displaystyle\Big[\frac{1}{f}\Big(\frac{\omega}{\gamma + t\omega} - 1\Big)\Big]r_t + \frac{1}{4f^2}\Big(\frac{\omega}{\gamma + t\omega}\Big)^2r_t^2 & \mathrm{otherwise}
+\end{cases}.
+$$
+ 
+
+And we have the unconditional relationship between the flow of funds and past return as
+$$
+N_t(r) = \Big[\frac{1}{f}\Big(\frac{\omega}{\gamma + t\omega} - 1\Big)\Big]\Big\{1 - G_{t-1}[\rho(r)]\Big\}r + \frac{1}{4f^2}\Big(\frac{\omega}{\gamma + t\omega}\Big)^2\Big\{1 - G_{t-1}[\rho(r)]\Big\}r^2 - G_{t-1}[\rho(r)],
+$$
+where
+$$
+\rho(r) \equiv \begin{cases}
+	\displaystyle\frac{\bar{\phi}}{1 + (r/2f)[\omega/(\gamma+t\omega)]} & \displaystyle r > -2\Big(\frac{\gamma + t\omega}{\omega}\Big)f\\
+	\infty & \displaystyle r \leq -2\Big(\frac{\gamma + t\omega}{\omega}\Big)f
+\end{cases}.
+$$
+With this cost function we have the conditional volatility of fund's excess return as a function of the assest under management (or the perceived quality of the manager) as
+$$
+\mathrm{Var}(r_{t+1}) = \mathrm{Var}_t\Big[\frac{q_t^*(\phi_t)}{q_t}R_{t+1}\Big] = \Big[\frac{q_t^*(\phi_t)}{q_t}\Big]^2\frac{1}{\omega} = \frac{f}{aq_t\omega} = \frac{1}{\omega}\Big(\frac{2f}{\phi_t}\Big)^2.
+$$
+We can see that the conditional volatility is a decreasing function of the size of the fund.
